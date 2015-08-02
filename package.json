@@ -1,0 +1,22 @@
+{
+  "name": "conway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Danwhy/conway.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Danwhy/conway/issues"
+  },
+  "homepage": "https://github.com/Danwhy/conway",
+  "devDependencies": {
+    "tape": "^4.0.1"
+  }
+}
