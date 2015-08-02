@@ -20,6 +20,7 @@ var conway = {
     for (var key in this.cells) {
       this.cells[key].neighbours = getNeighbours(this.cells[key].x, this.cells[key].y);
       addEmptyCells(this.cells[key].x, this.cells[key].y);
+      determineLife(this.cells[key]);
     }
   }
 };
@@ -53,6 +54,14 @@ function addEmptyCells(x, y) {
         conway.addCell(i, j, false);
       }
     }
+  }
+}
+
+function determineLife(cell) {
+  if (cell.neighbours === 3 || cell.neighbours === 2) {
+    cell.alive = true;
+  } else {
+    cell.alive = false;
   }
 }
 

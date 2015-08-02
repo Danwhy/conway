@@ -39,3 +39,12 @@ test("Each turn, all empty cells with live neighbours are added to the cells " +
   conway.cells = [];
   t.end();
 });
+
+test("Each turn, any cell with less than two neighbours dies", function(t) {
+  conway.initCell(0,0);
+  t.equal(conway.cells['0,0'].alive, true);
+  conway.nextTurn();
+  t.equal(conway.cells['0,0'].alive, false);
+  conway.cells = [];
+  t.end();
+});
