@@ -48,3 +48,38 @@ test("Each turn, any cell with less than two neighbours dies", function(t) {
   conway.cells = [];
   t.end();
 });
+
+test("Any live cell with two or three live neighbours lives on to the next " +
+"turn", function(t) {
+  conway.initCell(0,0);
+  conway.initCell(0,1);
+  conway.initCell(1,1);
+  conway.nextTurn();
+  t.equal(conway.cells['0,0'].alive, true);
+  conway.cells = [];
+  t.end();
+});
+
+test("Any live cell with more than three live neighbours dies", function(t) {
+  conway.initCell(0,0);
+  conway.initCell(0,1);
+  conway.initCell(0,2);
+  conway.initCell(1,0);
+  conway.initCell(1,1);
+  conway.nextTurn();
+  t.equal(conway.cells['0,1'].alive, false);
+  conway.cells = [];
+  t.end();
+});
+
+test("Any dead cell with exactly three live neighbours becomes a live " +
+"cell", function(t) {
+  conway.initCell(0,0);
+  conway.initCell(0,2);
+  conway.initCell(1,0);
+  conway.nextTurn();
+  t.equal(conway.cells['0,1'].alive, true);
+  t.equal(conway.cells['-1,0'].alive, false);
+  conway.cells = [];
+  t.end();
+});

@@ -6,6 +6,7 @@ var conway = {
       neighbours: getNeighbours(x, y),
       alive: true
     };
+    addEmptyCells(x, y);
   },
   addCell: function(x, y, alive) {
     this.cells[x + ',' + y] = {
